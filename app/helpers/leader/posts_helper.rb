@@ -1,0 +1,2 @@
+module Leader::PostsHelper
+end

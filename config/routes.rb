@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+ 
   root to: 'public/homes#top'
-  
+ 
   namespace :leader do
     get 'homes/top'
+    resources :posts
   end
   
   namespace :admin do
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
  
   namespace :public do
     get 'homes/about'
+    resources :posts, only: [:index, :show]
   end
   
   devise_for :leaders, skip: [:registrations], controllers: {
