@@ -4,13 +4,13 @@ class Leader::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
   def after_sign_in_path_for(resource)
-    public_homes_top_path
+    leader_homes_top_path
   end
 
   def after_sign_out_path_for(resource)
-    public_homes_top_path
+    root_path
   end
- 
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -32,5 +32,5 @@ class Leader::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
-  
+
 end
