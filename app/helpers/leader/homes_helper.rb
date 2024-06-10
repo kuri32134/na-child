@@ -1,0 +1,2 @@
+module Leader::HomesHelper
+end
