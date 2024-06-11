@@ -1,2 +1,8 @@
-<h1>Leader::Posts#show</h1>
-<p>Find me in app/views/leader/posts/show.html.erb</p>
+<div>
+  <%= image_tag @post.get_image %>
+  <p>題名：<%= @post.name %></p>
+  <p>本文：<%= @post.body %></p>
+  <p>日誌に関する画像：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>投稿者：<%= @post.leader.name %></p>
+  <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+</div>

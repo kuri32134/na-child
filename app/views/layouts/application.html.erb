@@ -20,6 +20,9 @@
         <li>
           <%= link_to "ログアウト", destroy_leader_session_path, method: :delete %>
         </li>
+        <li>
+          <%= link_to '日誌投稿フォーム', new_leader_post_path %>
+        </li>
       <% elsif admin_signed_in? %>
         <li>
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>

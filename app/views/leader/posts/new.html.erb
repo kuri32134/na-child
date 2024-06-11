@@ -1,2 +1,10 @@
-<h1>Leader::Posts#new</h1>
-<p>Find me in app/views/leader/posts/new.html.erb</p>
+<h1>日誌投稿フォーム</h1>
+<%= form_with model: @post, url: leader_posts_path do |f| %>
+  <h4>題名</h4>
+  <%= f.text_field :title %>
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.submit '投稿' %>
+<% end %>
