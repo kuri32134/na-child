@@ -16,6 +16,9 @@
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
+        <li>
+          <%= link_to 'マイページ', public_user_path(current_user.id) %>    
+        </li>
       <% elsif leader_signed_in? %>
         <li>
           <%= link_to "ログアウト", destroy_leader_session_path, method: :delete %>
