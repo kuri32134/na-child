@@ -1,12 +1,13 @@
 <h4>日誌詳細</h4>
 <div>
-  <%= image_tag @post.get_image %>
   <p>題名：<%= @post.title %></p>
   <p>本文：<%= @post.body %></p>
-  <p>日誌に関する画像：<%= image_tag @post.leader.get_image(100,100) %></p>
+  <p>日誌に関する画像：<%= image_tag @post.get_image(100,100) %></p>
   <p>投稿者：<%= @post.leader.name %></p>
   <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+
    <% if @post.leader == current_leader %>
+    <%= link_to "編集", edit_leader_post_path(@post) %></p>
     <%= link_to "削除", leader_post_path(@post), method: :delete %>
   <% end %>
 </div>

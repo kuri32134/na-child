@@ -6,7 +6,7 @@ class Leader::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.leader_id = current_leader.id
-    @post.save!
+    @post.save
     redirect_to leader_posts_path
   end
 
@@ -21,19 +21,19 @@ class Leader::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to leader_post_path(post.id)  
+    redirect_to leader_post_path(post.id)
   end
-  
+
   def destroy
     post = Post.find(params[:id])
     post.destroy
     redirect_to leader_posts_path
   end
-  
+
   private
 
   def post_params
