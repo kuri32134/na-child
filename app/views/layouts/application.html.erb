@@ -25,6 +25,9 @@
         <li>
           <%= link_to 'na-childについて', public_homes_about_path %>
         </li>
+        <li>
+          <%= link_to '日誌一覧', leader_posts_path %>
+        </li>
       <% elsif leader_signed_in? %>
         <li>
           <%= link_to "ログアウト", destroy_leader_session_path, method: :delete %>
