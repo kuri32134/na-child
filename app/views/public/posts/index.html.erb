@@ -1,7 +1,7 @@
 <h4>日誌一覧</h4>
 <% @posts.each do |post| %>
   <div>
-    <p>題名： <%= link_to leader_post_path(post.id) do %><%= post.title %><% end %></p>
+    <p>題名： <%= link_to public_post_path(post.id) do %><%= post.title %><% end %></p>
     <p>投稿者：<%= post.leader.name %></p>
   </div>
 <% end %>
