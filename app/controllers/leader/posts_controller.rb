@@ -6,8 +6,12 @@ class Leader::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.leader_id = current_leader.id
-    @post.save
-    redirect_to leader_posts_path
+    if @post.save
+      redirect_to leader_posts_path
+    else
+      render :new
+    end
+    
   end
 
   def index

@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   
   has_one_attached :image
   belongs_to :leader
+  
+  validates :title, presence: true
+  validates :body, presence: true
 
   def get_image(width, height)
     unless image.attached?

@@ -1,4 +1,14 @@
 <h1>日誌投稿フォーム</h1>
+
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @post, url: leader_posts_path do |f| %>
   <h4>題名</h4>
   <%= f.text_field :title %>
