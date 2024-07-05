@@ -1,4 +1,5 @@
 class Leader::PostsController < ApplicationController
+  before_action :authenticate_leader!
   def new
     @post = Post.new
   end
@@ -11,7 +12,7 @@ class Leader::PostsController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   def index
