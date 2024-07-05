@@ -14,7 +14,7 @@ Rails.application.routes.draw do
  
   namespace :public do
     get 'homes/about'
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show]
   end
   

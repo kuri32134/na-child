@@ -4,6 +4,8 @@ class Leader < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  validates :name, presence: true
+  
   has_many :posts, dependent: :destroy
   
   has_one_attached :image

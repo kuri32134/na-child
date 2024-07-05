@@ -11,8 +11,11 @@ class Leader::UsersController < ApplicationController
 
   def update
     @leader= Leader.find(params[:id])
-    @leader.update(leader_params)
-    redirect_to leader_user_path(@leader.id)
+    if @leader.update(leader_params)
+      redirect_to leader_user_path(@leader.id)
+    else
+      render :edit
+    end
   end
 
   def leader_params
