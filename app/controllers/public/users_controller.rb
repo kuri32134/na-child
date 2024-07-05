@@ -11,12 +11,19 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user= User.find(params[:id])
     if @user.update(user_params)
       redirect_to public_user_path(@user.id)
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id]) 
+    @user.destroy
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to root_path
   end
 
   private
@@ -27,7 +34,7 @@ class Public::UsersController < ApplicationController
   def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to public_posts_path
+      redirect_to root_path
     end
   end
 
