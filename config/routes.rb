@@ -5,7 +5,9 @@ Rails.application.routes.draw do
  
   namespace :leader do
     resources :users, only:[:show, :edit, :update]
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: [:create]
+    end
   end
   
   namespace :admin do
