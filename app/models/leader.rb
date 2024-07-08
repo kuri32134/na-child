@@ -11,6 +11,20 @@ class Leader < ApplicationRecord
   has_one_attached :image
   
   
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @leader = Leader.where("name LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @leader = Leader.where("name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @leader = Leaedr.where("name LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @leader = Leader.where("name LIKE?","%#{word}%")
+    else
+      @leader = Leader.all
+    end
+  end
+  
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
