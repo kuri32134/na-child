@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/about'
     resources :users, only: [:show, :edit, :update, :destroy]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   devise_for :leaders, skip: [:registrations], controllers: {
