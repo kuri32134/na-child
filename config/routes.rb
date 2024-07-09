@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
- 
- 
+
+
   root to: 'public/homes#top'
- 
+
   namespace :leader do
     resources :users, only:[:show, :edit, :update]
     resources :posts do
       resources :post_comments, only: [:create]
     end
   end
-  
+
   namespace :admin do
     get 'homes/top'
   end
- 
+
   namespace :public do
     get 'homes/about'
     resources :users, only: [:show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show]
   end
-  
+
   devise_for :leaders, skip: [:registrations], controllers: {
   sessions: "leader/sessions"
 }
