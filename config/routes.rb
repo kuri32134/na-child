@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :leader do
     resources :users, only:[:show, :edit, :update]
     resources :posts do
-      resources :post_comments, only: [:create]
+      resources :post_comments, only: [:create, :destroy]
     end
   end
 
