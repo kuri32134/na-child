@@ -10,12 +10,14 @@ Leader.find_or_create_by!(email: "tomo@g") do |leader|
  leader.email = "tomo@g"
  leader.password = "bbbbbb"
  leader.name = "tomo"
+ leader.id = 1
 end
 
 Leader.find_or_create_by!(email: "ai@g") do |leader|
   leader.email = "ai@g"
   leader.password = "cccccc"
   leader.name = "ai"
+  leader.id = 2
 end
 
 puts "seedの実行が完了しました"

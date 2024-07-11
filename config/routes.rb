@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top'
+    get 'dashboards/index'
+    resources :users, only: [:destroy]
+    resources :leaders, only: [:index, :create, :destroy]
   end
 
   namespace :public do

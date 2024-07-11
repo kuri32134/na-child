@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   validates :last_name, :first_name, :last_name_kana, :first_name_kana, :phone_number, presence: true
-
+  validates :email, presence: true, uniqueness: true
+  
   def full_name
     self.last_name + " " + self.first_name
   end
