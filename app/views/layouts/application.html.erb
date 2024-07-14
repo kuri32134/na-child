@@ -56,6 +56,12 @@
               <li class="nav-item">
                 <%= link_to "ユーザー・リーダー一覧", admin_dashboards_index_path, class: 'nav-link text-dark' %>
               </li>
+              <li class="nav-item">
+                <%= link_to "日誌一覧", admin_posts_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "コメント一覧", admin_post_comments_path, class: 'nav-link text-dark' %>
+              </li>
             <% else %>
               <li class="nav-item">
                 <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>

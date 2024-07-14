@@ -1,0 +1,18 @@
+<h1>リーダー日誌一覧</h1>
+<table>
+  <tr>
+    <th>作成者名前</th>
+    <th>日誌の題名</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= @leaders.find(post.leader_id).name %></td>
+    <td><%= post.title %></td>
+    <td><%= post.created_at.strftime('%Y/%m,%d') %></td>
+    <td></td>
+    <td><%= link_to '削除', admin_post_path(post), method: :delete, data: {confirm: '本当に削除しますか？' } %></td>
+  </tr>
+<% end %>
+</table>

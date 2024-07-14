@@ -1,0 +1,42 @@
+<h1>コメント一覧</h1>
+<h2>ユーザーコメント</h2>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>コメント</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @post_comments.each do |post_comment| %>
+  <% if post_comment.user_id? %>
+  <tr>
+    <td><%= @users.find(post_comment.user_id).first_name %></td>
+    <td><%= post_comment.comment %></td>
+    <td><%= post_comment.created_at.strftime('%Y/%m,%d') %></td>
+    <td></td>
+    <td><%= link_to '削除', admin_post_comment_path(post_comment), method: :delete, data: {confirm: '本当に削除しますか？' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<h2>リーダーコメント</h2>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>コメント</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @post_comments.each do |post_comment| %>
+  <% if post_comment.leader_id? %>
+  <tr>
+    <td><%= @leaders.find(post_comment.leader_id).name %></td>
+    <td><%= post_comment.comment %></td>
+    <td><%= post_comment.created_at.strftime('%Y/%m,%d') %></td>
+    <td></td>
+    <td><%= link_to '削除', admin_post_comment_path(post_comment), method: :delete, data: {confirm: '本当に削除しますか？' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>

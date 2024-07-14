@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get 'dashboards/index'
     resources :users, only: [:destroy]
     resources :leaders, only: [:index, :create, :destroy]
+    resources :posts, only: [:index, :destroy]
+    resources :post_comments, only: [:index, :destroy]
   end
 
   namespace :public do
