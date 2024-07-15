@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
 
   namespace :leader do
-    resources :users, only:[:show, :edit, :update]
+    resources :users, only:[:new, :create, :show, :edit, :update]
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
     end
