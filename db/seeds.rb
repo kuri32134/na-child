@@ -1,20 +1,17 @@
 puts "seedの実行を開始"
 
-Admin.find_or_create_by!(email: "kuri@g") do |admin|
-  admin.email = "kuri@g",
+Admin.find_or_create_by!(email: "kuri@example.com") do |admin|
   admin.password = "aaaaaa"
 end
 
 
-Leader.find_or_create_by!(email: "tomo@g") do |leader|
- leader.email = "tomo@g"
+Leader.find_or_create_by!(email: "tomo@example.com") do |leader|
  leader.password = "bbbbbb"
  leader.name = "tomo"
  leader.id = 1
 end
 
-Leader.find_or_create_by!(email: "ai@g") do |leader|
-  leader.email = "ai@g"
+Leader.find_or_create_by!(email: "ai@example.com") do |leader|
   leader.password = "cccccc"
   leader.name = "ai"
   leader.id = 2
