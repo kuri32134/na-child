@@ -1,9 +1,24 @@
 <%= render 'searches/retrieval' %>
-<h4>日誌一覧</h4>
-<% @posts.each do |post| %>
-  <div>
-    <p>題名： <%= link_to leader_post_path(post.id) do %><%= post.title %><% end %></p>
-    <p>投稿者：<%= post.leader.name %></p>
-    <p><%= link_to "#{post.post_comments.count} コメント", leader_post_path(post.id) %></p>
+<div class="container">
+  <div class="row">
+    <h4>日誌一覧</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>題名</th>
+            <th>投稿者</th>
+            <th>作成日時</th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to leader_post_path(post.id) do %><%= post.title %><% end %></td>
+            <td><%= post.leader.name %></td>
+            <td><%= post.created_at.strftime('%Y/%m,%d') %></td>
+            <td><%= link_to "#{post.post_comments.count} コメント", leader_post_path(post.id) %></td>
+          </tr>
+        <% end %>
+      </table>
   </div>
-<% end %>
+</div>
