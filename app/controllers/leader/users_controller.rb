@@ -27,4 +27,9 @@ class Leader::UsersController < ApplicationController
     end
   end
 
+private
+  def leader_params
+    params.require(:leader).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end
