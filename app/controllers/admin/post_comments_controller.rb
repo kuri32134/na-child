@@ -3,7 +3,6 @@ class Admin::PostCommentsController < ApplicationController
     @post_comments = PostComment.all
     @leaders = Leader.all
     @users = User.all
-  
   end
   
   def destroy
