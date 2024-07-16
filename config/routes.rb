@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
 
   namespace :leader do
-    resources :users, only:[:new, :create, :show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
     end
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboards/index'
     resources :users, only: [:destroy]
-    resources :leaders, only: [:destroy]
-    resources :posts, only: [:index, :destroy]
+    resources :leaders, only: [:new, :create, :destroy]
+    resources :posts, only: [:index, :show, :edit, :update, :destroy]
     resources :post_comments, only: [:index, :destroy]
   end
 
