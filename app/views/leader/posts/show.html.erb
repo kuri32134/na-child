@@ -26,7 +26,7 @@
     </div>
 
     <div class="col-9">
-      <%= form_with model: [@post, @post_comment], url: leader_post_post_comments_path(@post) do |f| %>
+      <%= form_with model: [@post, @post_comment], url: leader_post_post_comments_path(@post), local: true do |f| %>
         <%= f.text_area :comment, class: 'form-control' , rows: '5', placeholder: "コメントをここに" %>
         <%= f.submit "送信する", class: 'btn btn-primary' %>
       <% end %>

@@ -1,3 +1,27 @@
+.flash {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.flash.notice {
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+.flash.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.flash.alert {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.flash.error {
+  background-color: #f2dede;
+  color: #a94442;
+}
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
