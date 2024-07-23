@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 2024_07_23_011340) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.string "status"
+    t.integer "max_children"
+    t.integer "number_of_families"
     t.datetime "start"
     t.datetime "end"
     t.datetime "created_at", precision: 6, null: false

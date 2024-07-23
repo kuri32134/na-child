@@ -3,6 +3,9 @@ class CreateEvents < ActiveRecord::Migration[6.1]
     create_table :events do |t|
       t.string :title
       t.string :body
+      t.string :status
+      t.integer :max_children
+      t.integer :number_of_families
       t.datetime :start
       t.datetime :end
 
