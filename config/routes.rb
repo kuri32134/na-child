@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'events/index'
+  get '/events', to: 'events#index', defaults: { format: 'json' }
   root to: 'public/homes#top'
 
   namespace :leader do

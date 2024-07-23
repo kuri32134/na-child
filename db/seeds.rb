@@ -17,6 +17,15 @@ Leader.find_or_create_by!(email: "ai@example.com") do |leader|
   leader.id = 2
 end
 
+10.times do |i|
+  Event.create!(
+    title: "サンプルイベント#{i+1}",
+    body: "サンプル内容#{i+1}",
+    start: Time.zone.now + i.days,
+    end: Time.zone.now + i.days + 1.hour
+  )
+end
+
 puts "seedの実行が完了しました"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
