@@ -1,0 +1,2 @@
+class BookingChild < ApplicationRecord
+end
