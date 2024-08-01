@@ -15,6 +15,9 @@ import "../stylesheets/application";
 
 import './calendar';
 
+require('jquery')
+import "cocoon";
+
 
 Rails.start()
 Turbolinks.start()
