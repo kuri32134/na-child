@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
 
 
-  namespace :public do
-    get 'bookings/new'
-    get 'bookings/create'
-    get 'bookings/index'
-    get 'bookings/show'
-  end
+  
   get 'events/index'
   get '/events', to: 'events#index', defaults: { format: 'json' }
   root to: 'public/homes#top'
@@ -32,6 +27,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show] do
       resources :post_comments, only: [:create, :destroy]
     end
+    resources :bookings, only: [:new, :show, :create, :index]
   end
 
   devise_for :leaders, skip: [:registrations], controllers: {
