@@ -53,15 +53,16 @@ ActiveRecord::Schema.define(version: 2024_08_01_022803) do
   end
 
   create_table "booking_children", force: :cascade do |t|
-    t.string "name_of_child"
-    t.string "age_of_child"
+    t.string "name_of_child", null: false
+    t.integer "age_of_child", null: false
+    t.integer "booking_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "number_of_children"
-    t.integer "number_of_guardians"
+    t.integer "number_of_children", null: false
+    t.integer "number_of_guardians", null: false
     t.text "remarks"
     t.integer "user_id"
     t.integer "event_id"
@@ -70,13 +71,14 @@ ActiveRecord::Schema.define(version: 2024_08_01_022803) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
+    t.string "title", null: false
+    t.string "body", null: false
     t.string "status"
     t.integer "max_children"
     t.integer "number_of_families"
     t.datetime "start"
     t.datetime "end"
+    t.integer "leader_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

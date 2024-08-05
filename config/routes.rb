@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  namespace :public do
+    get 'bookings/new'
+    get 'bookings/create'
+    get 'bookings/index'
+    get 'bookings/show'
+  end
   get 'events/index'
   get '/events', to: 'events#index', defaults: { format: 'json' }
   root to: 'public/homes#top'
